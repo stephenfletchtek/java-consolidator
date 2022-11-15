@@ -1,6 +1,9 @@
 package leap_years;
 
+import java.util.ArrayList;
+
 public class LeapYear {
+
     public static void main(String[] args) {
         LeapYear leapYear = new LeapYear();
         if (args.length > 0) {
@@ -14,5 +17,15 @@ public class LeapYear {
             return true;
         }
         return year % 4 == 0 && year % 100 != 0;
+    }
+
+    public ArrayList<Integer> leapYearsBetween(Integer start, Integer end) {
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int i = start + 1; i < end; i++) {
+            if (isLeapYear(i)) {
+                result.add(i);
+            }
+        }
+        return result;
     }
 }
