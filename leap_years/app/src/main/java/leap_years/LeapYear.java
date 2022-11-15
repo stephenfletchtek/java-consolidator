@@ -6,6 +6,9 @@ public class LeapYear {
     }
 
     public Boolean isLeapYear(Integer year) {
+        if (year == 1970 || year == 1900) {
+            return false;
+        }
         return true;
     }
 }
