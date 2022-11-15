@@ -21,7 +21,11 @@ public class LeapYear {
 
     public ArrayList<Integer> leapYearsBetween(Integer start, Integer end) {
         ArrayList<Integer> result = new ArrayList<>();
-        for (int i = start + 1; i < end; i++) {
+        if (start % 2 == 0) {
+            start++;
+        }
+
+        for (int i = start + 1; i < end; i += 2) {
             if (isLeapYear(i)) {
                 result.add(i);
             }
