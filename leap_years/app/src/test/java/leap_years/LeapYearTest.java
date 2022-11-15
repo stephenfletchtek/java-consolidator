@@ -18,4 +18,14 @@ public class LeapYearTest {
         LeapYear leapYear = new LeapYear();
         assertFalse("1900 is a leap year", leapYear.isLeapYear(1900));
     }
+
+    @Test public void isLeap1988() {
+        LeapYear leapYear = new LeapYear();
+        assertTrue("1988 is a leap year", leapYear.isLeapYear(1988));
+    }
+
+    @Test public void isLeap1500() {
+        LeapYear leapYear = new LeapYear();
+        assertFalse("1500 is a leap year", leapYear.isLeapYear(1500));
+    }
 }
