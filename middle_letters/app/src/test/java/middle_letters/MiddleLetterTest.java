@@ -18,4 +18,16 @@ public class MiddleLetterTest {
     @Test public void middleOfTesting() {
         assertEquals("middle of testing is t", middleLetter.get_middle("testing"), String.valueOf("t"));
     }
+
+    @Test public void middleOfMiddle() {
+        assertEquals("middle of middle is dd", middleLetter.get_middle("middle"), String.valueOf("dd"));
+    }
+
+    @Test public void middleOfA() {
+        assertEquals("middle of A is A", middleLetter.get_middle("A"), String.valueOf("A"));
+    }
+
+    @Test public void middleOfof() {
+        assertEquals("middle of of is of", middleLetter.get_middle("of"), String.valueOf("of"));
+    }
 }
