@@ -32,4 +32,18 @@ public class LeapYear {
         }
         return result;
     }
+
+    public Integer closestLeapYear(Integer date) {
+        Integer delta = 0;
+        for (int i = 0; i < 8; i++) {
+            if (isLeapYear(date + i)) {
+                delta = i;
+                break;
+            } else if (isLeapYear(date - i)) {
+                delta = -i;
+                break;
+            }
+        }
+        return date + delta;
+    }
 }

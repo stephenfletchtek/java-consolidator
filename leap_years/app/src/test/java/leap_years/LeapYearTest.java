@@ -50,4 +50,12 @@ public class LeapYearTest {
         }
         assertEquals("Between 1900 and 1920", leapYear.leapYearsBetween(1900, 1920), result);
     }
+
+    @Test public void closestTo1989() {
+        assertEquals("Nearest to 1989 is 1988", leapYear.closestLeapYear(1989), Integer.valueOf(1988));
+    }
+
+    @Test public void closestTo1500() {
+        assertEquals("Nearest to 1500 is 1504", leapYear.closestLeapYear(1500), Integer.valueOf(1504));
+    }
 }
