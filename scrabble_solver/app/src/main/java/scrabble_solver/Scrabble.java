@@ -1,31 +1,35 @@
 package scrabble_solver;
 
-import java.util.Objects;
+import java.util.HashMap;
 
 public class Scrabble {
-    String word;
-    String onePoint = "AaEeIiOoUuLlNnRrSsTt";
-    String twoPoints = "DdGg";
-    String threePoints = "BbCcMmPp";
-    String fourPoints = "FfHhVvWwYy";
-    String fivePoints = "Kk";
-    String eightPoints = "JjXx";
-    String tenPoints = "QqZz";
-    Integer score;
+    private final String word;
+    private Integer score;
+    private final HashMap<Integer, String> scoreMap;
 
     public Scrabble(String word) {
+        scoreMap = new HashMap<>();
+        String[] letters = {
+                "AaEeIiOoUuLlNnRrSsTt",
+                "DdGg",
+                "BbCcMmPp",
+                "FfHhVvWwYy",
+                "Kk",
+                "JjXx",
+                "QqZz"
+        };
+        Integer[] scores = {1, 2, 3, 4, 5, 8, 10};
+        for (int i = 0; i < letters.length ; i++) {
+            scoreMap.put(scores[i], letters[i]);
+        }
         this.word = word;
         this.score = 0;
     }
 
     public Integer score() {
-        calcScore(1, onePoint);
-        calcScore(2, twoPoints);
-        calcScore(3, threePoints);
-        calcScore(4, fourPoints);
-        calcScore(5, fivePoints);
-        calcScore(8, eightPoints);
-        calcScore(10, tenPoints);
+        for (Integer key : scoreMap.keySet()) {
+            calcScore(key, scoreMap.get(key));
+        }
         return this.score;
     }
 
