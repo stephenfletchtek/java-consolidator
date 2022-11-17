@@ -19,13 +19,20 @@ public class Checkout {
     }
     public Integer checkout(String basket) {
         int total = 0;
+        int discount = 0;
         if (!validBasket(basket)) {
             return -1;
         }
 
         for (int i = 0; i < 4; i++) {
             Integer quantity = countItem(basket, itemNames.charAt(i));
-            total += quantity * items.get(i)[0];
+            Integer[] item = items.get(i);
+            Integer price = item[0];
+            total += quantity * price;
+            if (item.length == 3) {
+                discount = quantity * price - ((quantity / item[1]) * item[2]);
+                total -= discount;
+            }
         }
 
         return total;
