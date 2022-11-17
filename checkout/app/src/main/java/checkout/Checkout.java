@@ -19,7 +19,6 @@ public class Checkout {
     }
     public Integer checkout(String basket) {
         int total = 0;
-        int discount = 0;
         if (!validBasket(basket)) {
             return -1;
         }
@@ -27,14 +26,11 @@ public class Checkout {
         for (int i = 0; i < 4; i++) {
             Integer quantity = countItem(basket, itemNames.charAt(i));
             Integer[] item = items.get(i);
-            Integer price = item[0];
-            total += quantity * price;
-            if (item.length == 3) {
-                discount = quantity * price - ((quantity / item[1]) * item[2]);
-                total -= discount;
+            total += quantity * item[0];
+            if (item.length == 3 && quantity / item[1] > 0) {
+                total -= quantity * item[0] - ((quantity / item[1]) * item[2]);
             }
         }
-
         return total;
     }
 
