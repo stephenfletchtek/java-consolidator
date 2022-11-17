@@ -41,4 +41,9 @@ public class CheckoutTest {
     public void testSix() {
         assertEquals("AAA", shop.checkout("AAA"), Integer.valueOf(130));
     }
+
+    @Test
+    public void testSeven() {
+        assertEquals("AAAAAA", shop.checkout("AAAAAA"), Integer.valueOf(260));
+    }
 }
