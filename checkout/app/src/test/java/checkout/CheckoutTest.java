@@ -24,7 +24,7 @@ public class CheckoutTest {
 
     @Test
     public void testThree() {
-        assertEquals("18", shop.checkout(), Integer.valueOf(-1));
+        assertEquals("18", shop.checkout(18), Integer.valueOf(-1));
     }
 
     @Test

@@ -3,7 +3,7 @@ package checkout;
 import java.util.Objects;
 
 public class Checkout {
-    public Integer checkout() {
+    public Integer checkout(Integer basket) {
         return -1;
     }
     public Integer checkout(String basket) {
