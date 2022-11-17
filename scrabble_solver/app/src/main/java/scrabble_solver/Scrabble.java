@@ -20,6 +20,12 @@ public class Scrabble {
 
     public Integer score() {
         calcScore(1, onePoint);
+        calcScore(2, twoPoints);
+        calcScore(3, threePoints);
+        calcScore(4, fourPoints);
+        calcScore(5, fivePoints);
+        calcScore(8, eightPoints);
+        calcScore(10, tenPoints);
         return this.score;
     }
 
