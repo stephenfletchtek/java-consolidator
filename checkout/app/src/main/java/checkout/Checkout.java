@@ -1,7 +1,6 @@
 package checkout;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Checkout {
     private final ArrayList<Integer[]> items;
@@ -19,7 +18,7 @@ public class Checkout {
         return -1;
     }
     public Integer checkout(String basket) {
-        Integer total = 0;
+        int total = 0;
         if (!validBasket(basket)) {
             return -1;
         }
@@ -33,7 +32,7 @@ public class Checkout {
     }
 
     private Integer countItem(String basket, Character item) {
-        Integer count = 0;
+        int count = 0;
         for (int i = 0; i < basket.length(); i++ ) {
             if (basket.charAt(i) == item) {
                 count ++;
@@ -44,7 +43,7 @@ public class Checkout {
 
     private Boolean validBasket(String basket) {
         for (int i = 0; i < basket.length(); i++) {
-            if ("ABCD".indexOf(basket.charAt(i)) == -1 ) {
+            if (itemNames.indexOf(basket.charAt(i)) == -1 ) {
                 return false;
             }
         }
