@@ -15,16 +15,16 @@ public class ChangeAccepterTest {
     }
 
     @Test public void testOne() {
-        String[] input = {"£5", "£1", "20p", "20p", "2p"};
+        String[] input = new String[] {"£5", "£1", "20p", "20p", "2p"};
         String output = "£6.42";
         assertEquals("currency to 6.42", changeAccepter.deposit(input), output);
     }
 
-//    @Test public void testTwo() {
-//        BigDecimal amount = new BigDecimal(40);
-//        String[] result = {"£20", "£20"};
-//        assertArrayEquals("40 in money", changeGenerator.convert(amount), result);
-//    }
+    @Test public void testTwo() {
+        String[] input = new String[] {"£20", "£20"};
+        String output = "£40.00";
+        assertEquals("currency to 40", changeAccepter.deposit(input), output);
+    }
 //
 //    @Test public void testThree() {
 //        BigDecimal amount = new BigDecimal("16.30");
