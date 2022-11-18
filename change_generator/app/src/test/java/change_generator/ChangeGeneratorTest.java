@@ -11,7 +11,7 @@ public class ChangeGeneratorTest {
     ChangeGenerator changeGenerator;
     @Before
     public void initialize() {
-        changeGenerator = new ChangeGenerator();
+        changeGenerator = new ChangeGenerator("£", "p");
     }
 
     @Test public void testOne() {

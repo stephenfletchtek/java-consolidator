@@ -4,10 +4,14 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class ChangeGenerator {
+    String bigUnit;
+    String smallUnit;
     String[] divisors;
     ArrayList<String> toReturn;
 
-    public ChangeGenerator() {
+    public ChangeGenerator(String bigUnit, String smallUnit) {
+        this.bigUnit = bigUnit;
+        this.smallUnit = smallUnit;
         divisors = new String[] {"50", "20", "10", "5", "2", "1", "0.5", "0.2", "0.1", "0.05", "0.02", "0.01"};
         toReturn = new ArrayList<>();
     }
@@ -26,8 +30,8 @@ public class ChangeGenerator {
     private String formatOutput(String input) {
         if (input.contains(".")) {
             BigDecimal result = new BigDecimal(input).multiply(new BigDecimal(100));
-            return result.intValue() + "p";
+            return result.intValue() + smallUnit;
         }
-        return "£" + Integer.valueOf(input);
+        return bigUnit + Integer.valueOf(input);
     }
 }
