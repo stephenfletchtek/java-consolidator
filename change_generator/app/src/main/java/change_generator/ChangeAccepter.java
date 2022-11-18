@@ -17,17 +17,16 @@ public class ChangeAccepter {
     }
 
     private BigDecimal toBigDecimal(String input) {
-        String numbers = "1234567890";
-        char chr = input.charAt(0);
-        String first = Character.toString(chr);
-        if (!numbers.contains(first)) {
+        String first = Character.toString(input.charAt(0));
+        if (!"1234567890".contains(first)) {
             return new BigDecimal(input.substring(1));
         }
-        return new BigDecimal(input.substring(0, input.length() - 1)).divide(new BigDecimal(100));
+        BigDecimal pence = new BigDecimal(input.substring(0, input.length() - 1));
+        return pence.divide(new BigDecimal(100), 2, RoundingMode.HALF_UP);
     }
 
     private String formatOutput(BigDecimal total, String currency) {
         total = total.setScale(2, RoundingMode.HALF_UP);
-        return currency + total.toString();
+        return currency + total;
     }
 }
