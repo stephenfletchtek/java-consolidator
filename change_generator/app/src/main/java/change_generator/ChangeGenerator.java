@@ -6,21 +6,21 @@ import java.util.ArrayList;
 public class ChangeGenerator {
     String bigUnit;
     String smallUnit;
-    String[] divisors;
+    String[] denominations;
     ArrayList<String> toReturn;
 
-    public ChangeGenerator(String bigUnit, String smallUnit) {
+    public ChangeGenerator(String bigUnit, String smallUnit, String[] denominations) {
         this.bigUnit = bigUnit;
         this.smallUnit = smallUnit;
-        divisors = new String[] {"50", "20", "10", "5", "2", "1", "0.5", "0.2", "0.1", "0.05", "0.02", "0.01"};
+        this.denominations = denominations;
         toReturn = new ArrayList<>();
     }
     public String[] convert(BigDecimal amount) {
-        for (String str : divisors) {
-            BigDecimal divisor = new BigDecimal(str);
+        for (String denomination : denominations) {
+            BigDecimal divisor = new BigDecimal(denomination);
             BigDecimal[] res = amount.divideAndRemainder(divisor);
             for (int i = 0; i < res[0].intValue(); i++) {
-                toReturn.add(formatOutput(str));
+                toReturn.add(formatOutput(denomination));
             }
             amount = res[1];
         }
