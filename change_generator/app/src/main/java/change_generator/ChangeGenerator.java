@@ -9,8 +9,8 @@ public class ChangeGenerator {
     ArrayList<String> toReturn;
 
     public ChangeGenerator() {
-        divisors = new String[] { "20", "10", "5", "1", "0.2", "0.1", "0.02"};
-        output = new String[] { "£20", "£10", "£5", "£1", "20p", "10p", "2p"};
+        divisors = new String[] { "20", "10", "5", "2", "1", "0.5", "0.2", "0.1", "0.05", "0.02"};
+        output = new String[] { "£20", "£10", "£5", "£2", "£1", "50p", "20p", "10p", "5p", "2p"};
         toReturn = new ArrayList<>();
     }
     public String[] convert(BigDecimal amount) {
