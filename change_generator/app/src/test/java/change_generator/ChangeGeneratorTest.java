@@ -25,4 +25,10 @@ public class ChangeGeneratorTest {
         String[] result = {"£20", "£20"};
         assertArrayEquals("40 in money", changeGenerator.convert(amount), result);
     }
+
+    @Test public void testThree() {
+        BigDecimal amount = new BigDecimal("16.30");
+        String[] result = {"£10", "£5", "£1", "20p", "10p"};
+        assertArrayEquals("16.30 in money", changeGenerator.convert(amount), result);
+    }
 }

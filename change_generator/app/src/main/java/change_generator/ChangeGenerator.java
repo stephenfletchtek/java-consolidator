@@ -15,9 +15,9 @@ public class ChangeGenerator {
     }
     public String[] convert(BigDecimal amount) {
         for (int j = 0; j < divisors.length; j++) {
-            BigDecimal bdDivisor = new BigDecimal(divisors[j]);
-            BigDecimal[] res = amount.divideAndRemainder(bdDivisor);
-            for (int i = 0; i < res[0].intValue(); i++ ) {
+            BigDecimal divisor = new BigDecimal(divisors[j]);
+            BigDecimal[] res = amount.divideAndRemainder(divisor);
+            for (int i = 0; i < res[0].intValue(); i++) {
                 toReturn.add(output[j]);
             }
             amount = res[1];
