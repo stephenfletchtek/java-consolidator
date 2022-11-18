@@ -15,7 +15,7 @@ public class ChangeGeneratorTest {
     }
 
     @Test public void testOne() {
-        BigDecimal amount = new BigDecimal(6.42);
+        BigDecimal amount = new BigDecimal("6.42");
         String[] result = {"£5", "£1", "20p", "20p", "2p"};
         assertArrayEquals("6.42 in money", changeGenerator.convert(amount), result);
     }
