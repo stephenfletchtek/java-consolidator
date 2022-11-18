@@ -17,8 +17,7 @@ public class ChangeAccepter {
     }
 
     private BigDecimal toBigDecimal(String input) {
-        String first = Character.toString(input.charAt(0));
-        if (!"1234567890".contains(first)) {
+        if (!"1234567890".contains(input.substring(0, 1))) {
             return new BigDecimal(input.substring(1));
         }
         BigDecimal pence = new BigDecimal(input.substring(0, input.length() - 1));
