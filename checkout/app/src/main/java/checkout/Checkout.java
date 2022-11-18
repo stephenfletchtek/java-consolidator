@@ -23,12 +23,12 @@ public class Checkout {
             return -1;
         }
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < itemNames.length(); i++) {
             Integer quantity = countItem(basket, itemNames.charAt(i));
             Integer[] item = items.get(i);
             total += quantity * item[0];
             if (item.length == 3 && quantity / item[1] > 0) {
-                total -= quantity * item[0] - ((quantity / item[1]) * item[2]);
+                total -= quantity / item[1] * (item[0] * item[1] - item[2]);
             }
         }
         return total;
