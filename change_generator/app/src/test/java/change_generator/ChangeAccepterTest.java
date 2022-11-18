@@ -9,7 +9,7 @@ public class ChangeAccepterTest {
     ChangeAccepter changeAccepter;
     @Before
     public void initialize() {
-        changeAccepter = new ChangeAccepter();
+        changeAccepter = new ChangeAccepter("£");
     }
 
     @Test public void testOne() {
