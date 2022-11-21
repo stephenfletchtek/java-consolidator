@@ -44,4 +44,12 @@ public class ChangeGeneratorTest {
         String[] result = {"£50", "£20", "£5", "£1", "50p", "20p", "10p", "1p"};
         assertArrayEquals("76.81 in money", changeGenerator.convert(amount), result);
     }
+
+    @Test public void testSixUSA() {
+        String[] usDenominations = {"100", "50", "20", "10", "5", "2", "1", "0.5", "0.25", "0.1", "0.05", "0.01"};
+        ChangeGenerator usChangeGenerator = new ChangeGenerator("$", "¢", usDenominations);
+        BigDecimal amount = new BigDecimal("76.81");
+        String[] result = {"$50", "$20", "$5", "$1", "50¢", "25¢", "5¢", "1¢"};
+        assertArrayEquals("76.81 in money", usChangeGenerator.convert(amount), result);
+    }
 }
